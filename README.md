@@ -1,4 +1,4 @@
-# BoardgameListingWebApp karthi
+# BoardgameListingWebApp
 
 ## Description
 
