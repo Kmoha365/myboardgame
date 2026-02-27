@@ -81,6 +81,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: boardgame-build
+          path: target/
+
       - name: dockerhub login
         run: echo "${{secrets.DOCKER_PASSWORD}}" |
           docker login -u "${{secrets.DOCKER_USERNAME}}" --password-stdin
