@@ -1,0 +1,20 @@
+Name: Boardgame-CI
+on:
+  push:
+    branches: ["main"]
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: maven
+      - name: compile
+        run: mvn compile
+      
