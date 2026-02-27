@@ -93,6 +93,15 @@ jobs:
       - name: Docker image build
         run: |
           docker build -t ${{secrets.DOCKER_USERNAME}}/boardgame:${{github.sha}} .
+      - name: Trivy_Scan
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: '${{secrets.DOCKER_USERNAME}}/boardgame:${{github.sha}}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH
 
       - name: Docker image push
         run: |
