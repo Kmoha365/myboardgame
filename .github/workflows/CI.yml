@@ -35,7 +35,7 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: boardgame JAR
+          name: boardgame-JAR
           path: target/*.jar
 
       - name: Upload Jacoco Report
@@ -65,7 +65,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          name: boardgame-build
+          name: boardgame-JAR
           path: target/
 
       - name: dockerhub login
