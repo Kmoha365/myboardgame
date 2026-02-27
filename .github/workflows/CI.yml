@@ -5,7 +5,14 @@ on:
     branches: ["main"]
 
 jobs:
-
+  Security_Scan:
+   runs-on: ubuntu-latest
+   steps:
+     - name: checkout
+       uses: actions/checkout@v4
+     - name: Gitleaks scan
+       uses: gitleaks/gitleaks-action@v2
+       
   Compile:
     runs-on: ubuntu-latest
     steps:
