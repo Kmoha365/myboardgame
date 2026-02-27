@@ -1,4 +1,4 @@
-Name: Boardgame-CI
+name: Boardgame-CI
 on:
   push:
     branches: ["main"]
