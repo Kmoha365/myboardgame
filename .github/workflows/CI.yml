@@ -17,4 +17,16 @@ jobs:
           cache: maven
       - name: compile
         run: mvn compile
-      
+  test:
+    runs-on: ubuntu-latest
+    needs: compile
+    steps:
+      - name: Test_case
+        run: mvn test
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: build_pacakge
+        run: mvn package
+  
