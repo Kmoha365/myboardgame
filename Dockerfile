@@ -1,13 +1,9 @@
-FROM openjdk:17-alpine
-         
-EXPOSE 8080
- 
-ENV APP_HOME /usr/src/app
+FROM eclipse-temurin:11-jdk-alpine
 
-COPY target/*.jar $APP_HOME/app.jar
+WORKDIR /app
 
-WORKDIR $APP_HOME
+COPY target/*.jar app.jar
 
-CMD ["java", "-jar", "app.jar"]
-  
+EXPOSE 8081
 
+ENTRYPOINT ["java","-jar","app.jar"]
